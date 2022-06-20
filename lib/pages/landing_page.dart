@@ -67,7 +67,7 @@ class _LandingPageState extends State<LandingPage> {
           // title: Text("Game Ketuk ketuk "),
           title: Row(
             children: [
-              const Text("Remember game|"),
+              const Text("Remember|"),
               const Text("Kelompok 2"),
               const SizedBox(width: 10),
               Image.asset('assets/question.webp',

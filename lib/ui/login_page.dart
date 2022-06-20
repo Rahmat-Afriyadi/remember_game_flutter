@@ -25,24 +25,33 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Login'),
-      ),
-      body: SingleChildScrollView(
+      // appBar: AppBar(
+      //   centerTitle: true,
+      //   backgroundColor: Colors.transparent,
+      //   elevation: 0,
+      //   title: const Text('Login',style: TextStyle(fontSize: 30, color:Colors.white)),
+      // ),
+      backgroundColor: const Color.fromARGB(100, 196, 181, 253),
+      body: Center(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Form(
             key: _formKey,
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                Text('Login',style: TextStyle(fontSize: 50, color:Colors.purple)),
+                const SizedBox(height:25),
                 _emailTextField(),
+                const SizedBox(height:10),
                 _passwordTextField(),
-                SizedBox(height: 10),
+                const SizedBox(height: 15),
                 _loginRegis(),
                 const SizedBox(
                   height: 30,
                 ),
-                loadingLogin ? CircularProgressIndicator() : Text("")
+                loadingLogin ? const CircularProgressIndicator() : const Text("")
               ],
             ),
           ),
@@ -54,7 +63,17 @@ class _LoginPageState extends State<LoginPage> {
   //Membuat Textbox email
   Widget _emailTextField() {
     return TextFormField(
-      decoration: const InputDecoration(labelText: "Email"),
+      decoration: const InputDecoration(
+        filled: true,
+        fillColor: Colors.white,
+        labelText: "Email",        
+        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(11.0)),
+                          borderSide:
+                              BorderSide(color: Colors.white, width: 2.0),                              
+                        ),
+                        border: OutlineInputBorder()
+      ),
       keyboardType: TextInputType.emailAddress,
       controller: _emailTextboxController,
       validator: (value) {
@@ -70,7 +89,17 @@ class _LoginPageState extends State<LoginPage> {
   //Membuat Textbox password
   Widget _passwordTextField() {
     return TextFormField(
-      decoration: const InputDecoration(labelText: "Password"),
+      decoration: const InputDecoration(
+        filled: true,
+        fillColor: Colors.white,
+        labelText: "Password",
+         enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(11.0)),
+                          borderSide:
+                              BorderSide(color: Colors.white, width: 2.0),
+                        ),
+                        border: OutlineInputBorder()
+        ),
       keyboardType: TextInputType.text,
       obscureText: true,
       controller: _passwordTextboxController,
@@ -89,14 +118,14 @@ class _LoginPageState extends State<LoginPage> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         ElevatedButton(
-            child: const Text("Login"),
+            child: const Text("Login", ),
             onPressed: () {
               var validate = _formKey.currentState!.validate();
               if (validate) {
                 if (!_isLoading) _submit();
               }
             }),
-        SizedBox(width: 5),
+        const SizedBox(width: 5),
         ElevatedButton(
           child: const Text("Registrasi"),
           onPressed: () {
@@ -142,7 +171,7 @@ class _LoginPageState extends State<LoginPage> {
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-              builder: (context) => ProfilePage(
+              builder: (context) => const ProfilePage(
                   // nama: value.nama,
                   // score: value.score,
                   )));

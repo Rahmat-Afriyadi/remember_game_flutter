@@ -23,25 +23,37 @@ class _RegistrasiPageState extends State<RegistrasiPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Registrasi"),
+        // title: const Text("Registrasi"),
+          backgroundColor: Colors.transparent,
+          elevation: 0,
       ),
-      body: SingleChildScrollView(
+      backgroundColor: const Color.fromARGB(100, 196, 181, 253),
+      body: Center(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Form(
             key: _formKey,
             child:
-                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-              _namaTextField(),
-              _emailTextField(),
-              _passwordTextField(),
-              _passwordKonfirmasiTextField(),
-              _buttonRegistrasi(),
-              const SizedBox(
-                  height: 30,
-                ),
-                _isLoading ? CircularProgressIndicator() : Text("")
-            ]),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center, 
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text('Register',style: TextStyle(fontSize: 50, color:Colors.purple)),
+                    const SizedBox(height:25),
+                    _namaTextField(),
+                    const SizedBox(height:10),
+                    _emailTextField(),
+                    const SizedBox(height:10),
+                    _passwordTextField(),
+                    const SizedBox(height:10),
+                    _passwordKonfirmasiTextField(),
+                    const SizedBox(height:15),
+                    _buttonRegistrasi(),
+                    const SizedBox(
+                        height: 30,
+                      ),
+                      _isLoading ? CircularProgressIndicator() : Text("")
+              ]),
           ),
         ),
       ),
@@ -50,7 +62,17 @@ class _RegistrasiPageState extends State<RegistrasiPage> {
 
   Widget _namaTextField() {
     return TextFormField(
-      decoration: const InputDecoration(labelText: "Nama"),
+      decoration: const InputDecoration(
+        labelText: "Nama",
+        filled: true,
+        fillColor: Colors.white,
+        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(11.0)),
+                          borderSide:
+                              BorderSide(color: Colors.white, width: 2.0),                              
+                        ),
+                        border: OutlineInputBorder()
+      ),
       keyboardType: TextInputType.text,
       controller: _namaTextboxController,
       validator: (value) {
@@ -64,7 +86,17 @@ class _RegistrasiPageState extends State<RegistrasiPage> {
 
   Widget _emailTextField() {
     return TextFormField(
-      decoration: const InputDecoration(labelText: "Email"),
+      decoration: const InputDecoration(
+        labelText: "Email",
+        filled: true,
+        fillColor: Colors.white,
+        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(11.0)),
+                          borderSide:
+                              BorderSide(color: Colors.white, width: 2.0),                              
+                        ),
+                        border: OutlineInputBorder()
+      ),
       keyboardType: TextInputType.emailAddress,
       controller: _emailTextboxController,
       validator: (value) {
@@ -86,7 +118,17 @@ class _RegistrasiPageState extends State<RegistrasiPage> {
 
   Widget _passwordTextField() {
     return TextFormField(
-      decoration: const InputDecoration(labelText: "Password"),
+      decoration: const InputDecoration(
+        labelText: "Password",
+        filled: true,
+        fillColor: Colors.white,
+        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(11.0)),
+                          borderSide:
+                              BorderSide(color: Colors.white, width: 2.0),                              
+                        ),
+                        border: OutlineInputBorder()
+      ),
       keyboardType: TextInputType.text,
       obscureText: true,
       controller: _passwordTextboxController,
@@ -103,7 +145,17 @@ class _RegistrasiPageState extends State<RegistrasiPage> {
   //membuat textbox Konfirmasi Password
   Widget _passwordKonfirmasiTextField() {
     return TextFormField(
-      decoration: const InputDecoration(labelText: "Konfirmasi Password"),
+      decoration: const InputDecoration(
+        labelText: "Konfirmasi Password",
+        filled: true,
+        fillColor: Colors.white,
+        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(11.0)),
+                          borderSide:
+                              BorderSide(color: Colors.white, width: 2.0),                              
+                        ),
+                        border: OutlineInputBorder()
+      ),
       keyboardType: TextInputType.text,
       obscureText: true,
       validator: (value) {
@@ -151,7 +203,6 @@ class _RegistrasiPageState extends State<RegistrasiPage> {
                 },
               ));
     }, onError: (error) {
-      print(error);
       showDialog(
           context: context,
           barrierDismissible: false,

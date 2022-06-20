@@ -8,7 +8,6 @@ class Login {
   Login({this.token, this.userID, this.userEmail, this.nama, this.score});
 
   factory Login.fromJson(Map<String, dynamic> obj) {
-    print(obj);
     return Login(
         token: obj['token']['access_token'],
         userID: obj['user']['id'],

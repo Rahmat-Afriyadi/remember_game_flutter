@@ -31,11 +31,11 @@ class _ProfilePageState extends State<ProfilePage> {
             child: Text('${v.tanggal}'))),
         DataCell(Text(
           '${v.level}',
-          style: TextStyle(fontSize: 17),
+          style: TextStyle(fontSize: 15),
         )),
         DataCell(Text(
           '${v.score}',
-          style: TextStyle(fontSize: 17),
+          style: TextStyle(fontSize: 15),
         )),
       ]));
       i += 1;
@@ -61,7 +61,6 @@ class _ProfilePageState extends State<ProfilePage> {
       setState(() {
         nama = value.nama != null ? value.nama.toString() : "";
         score = value.score != null ? value.score!.toInt() : 0;
-        print("ini tuh sorenya ${score}");
         if (score <= 100) {
           roleImage = "assets/role/baby.png";
         } else if (score <= 200) {
@@ -70,9 +69,7 @@ class _ProfilePageState extends State<ProfilePage> {
           roleImage = "assets/role/old.png";
         }
       });
-      print(roleImage);
     }, onError: (error) {
-      print("ini error get rank ${error}");
       showDialog(
           context: context,
           barrierDismissible: false,
@@ -86,7 +83,6 @@ class _ProfilePageState extends State<ProfilePage> {
         histories = value != null ? value : null;
       });
     }, onError: (error) {
-      print("ini historis ${error}");
       showDialog(
           context: context,
           barrierDismissible: false,
@@ -175,7 +171,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       child: Text(
                         "Nama",
                         style:
-                            TextStyle(color: Colors.purple[300], fontSize: 20),
+                            TextStyle(color: Colors.purple[300], fontSize: 17),
                       ),
                       padding: const EdgeInsets.symmetric(
                           horizontal: 20, vertical: 1),
@@ -194,7 +190,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       child: Text(
                         "Score",
                         style:
-                            TextStyle(color: Colors.purple[300], fontSize: 20),
+                            TextStyle(color: Colors.purple[300], fontSize: 17),
                       ),
                       padding: const EdgeInsets.symmetric(
                           horizontal: 20, vertical: 1),
@@ -202,6 +198,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     Text("${score}",
                         style:
                             TextStyle(fontSize: 25, color: Colors.purple[300])),
+                    SizedBox(height: 10),
                     ElevatedButton(
                       child: Text('Play'),
                       onPressed: () {
@@ -214,7 +211,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       style: ElevatedButton.styleFrom(
                           primary: Colors.greenAccent,
                           padding:
-                              EdgeInsets.symmetric(horizontal: 60, vertical: 5),
+                              EdgeInsets.symmetric(horizontal: 40, vertical: 5),
                           textStyle: TextStyle(
                               fontSize: 20, fontWeight: FontWeight.bold)),
                     ),
@@ -234,22 +231,24 @@ class _ProfilePageState extends State<ProfilePage> {
                     borderRadius: const BorderRadius.all(Radius.circular(10))),
               ),
             ),
+            SingleChildScrollView(
+              child: 
             DataTable(
                 columns: const [
                   DataColumn(
                       label: Text(
                     "Tanggal",
-                    style: TextStyle(fontSize: 20, color: Colors.redAccent),
+                    style: TextStyle(fontSize: 17, color: Colors.redAccent),
                   )),
                   DataColumn(
                       label: Text(
                     "Level",
-                    style: TextStyle(fontSize: 20, color: Colors.redAccent),
+                    style: TextStyle(fontSize: 17, color: Colors.redAccent),
                   )),
                   DataColumn(
                       label: Text(
                     "Score",
-                    style: TextStyle(fontSize: 20, color: Colors.redAccent),
+                    style: TextStyle(fontSize: 17, color: Colors.redAccent),
                   )),
                 ],
                 rows: histories != null
@@ -263,6 +262,8 @@ class _ProfilePageState extends State<ProfilePage> {
                           DataCell(Text("score")),
                         ])
                       ])
+                      ,
+            )
           ],
         )));
   }
