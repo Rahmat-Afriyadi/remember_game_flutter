@@ -27,7 +27,7 @@ class _RegistrasiPageState extends State<RegistrasiPage> {
           backgroundColor: Colors.transparent,
           elevation: 0,
       ),
-      backgroundColor: const Color.fromARGB(100, 196, 181, 253),
+      backgroundColor: const Color.fromARGB(255, 196, 181, 253),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(8.0),

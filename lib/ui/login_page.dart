@@ -31,7 +31,7 @@ class _LoginPageState extends State<LoginPage> {
       //   elevation: 0,
       //   title: const Text('Login',style: TextStyle(fontSize: 30, color:Colors.white)),
       // ),
-      backgroundColor: const Color.fromARGB(100, 196, 181, 253),
+      backgroundColor: Color.fromARGB(255, 195, 181, 253),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
